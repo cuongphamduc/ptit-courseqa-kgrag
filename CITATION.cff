@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this code or the PTIT-CourseQA benchmark, please cite it as below."
+title: "PTIT-CourseQA and structure-framed KG-RAG for Vietnamese small language models"
+version: 1.0.0
+license: CC-BY-4.0
+repository-code: "https://github.com/cuongphamduc/ptit-courseqa-kgrag"
+doi: "10.5281/zenodo.23086350"
+authors:
+  - family-names: Pham
+    given-names: Duc Cuong
+    email: cuongpd@ptit.edu.vn
+    orcid: "https://orcid.org/0000-0003-2793-6821"
+    affiliation: "Faculty of Artificial Intelligence, Posts and Telecommunications Institute of Technology"
+keywords:
+  - retrieval-augmented generation
+  - knowledge graph
+  - small language models
+  - Vietnamese
+  - hallucination
+  - question answering

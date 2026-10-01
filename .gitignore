@@ -1,0 +1,12 @@
+dataset/
+work/.venv/
+work/data/
+work/corpus/*
+!work/corpus/books.json
+work/index/
+work/qgen/
+results/
+__pycache__/
+*.pyc
+*.log
+*.pid

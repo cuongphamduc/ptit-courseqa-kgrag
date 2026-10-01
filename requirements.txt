@@ -1,0 +1,18 @@
+# Python 3.11. Install PyTorch for your CUDA version first (the experiments used torch 2.14.0+cu130).
+torch==2.14.0
+sentence-transformers==6.1.0
+transformers==5.17.0
+tokenizers==0.23.2
+huggingface-hub==1.32.0
+lightrag-hku==1.5.7
+ollama==0.6.2
+pyvi==0.1.1
+rank-bm25==0.2.2
+numpy==2.4.6
+scipy==1.17.1
+scikit-learn==1.9.1
+pandas==3.0.6
+openpyxl==3.1.5
+pymupdf==1.28.2
+matplotlib==3.11.2
+pyarrow==25.0.1

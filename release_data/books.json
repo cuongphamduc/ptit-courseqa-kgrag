@@ -1,0 +1,112 @@
+[
+ {
+  "book_id": "ATTT-CS",
+  "field_vi": "An toàn thông tin",
+  "field_en": "Information security",
+  "title_vi": "Giáo trình Cơ sở an toàn thông tin",
+  "year": 2018,
+  "pdf_file": "An toàn thông tin/Giáo trình Cơ sở an toàn thông tin - 2018.pdf",
+  "pdf_pages": 143,
+  "n_chunks": 123
+ },
+ {
+  "book_id": "ATTT-TMDT",
+  "field_vi": "An toàn thông tin",
+  "field_en": "Information security",
+  "title_vi": "Bài giảng Phân tích thương mại điện tử và an toàn thông tin",
+  "year": 2019,
+  "pdf_file": "An toàn thông tin/Bài giảng Phân tích thương mại điện tử và an toàn thông tin - 2019.pdf",
+  "pdf_pages": 172,
+  "n_chunks": 231
+ },
+ {
+  "book_id": "CNTT-PTTK",
+  "field_vi": "Công nghệ thông tin",
+  "field_en": "Information technology",
+  "title_vi": "Bài giảng Phân tích, thiết kế hệ thống thương mại điện tử",
+  "year": 2019,
+  "pdf_file": "Công nghệ thông tin/Bài giảng Phân tích, thiết kế hệ thống thương mại điện tử - 2019.pdf",
+  "pdf_pages": 151,
+  "n_chunks": 149
+ },
+ {
+  "book_id": "CNTT-KDL",
+  "field_vi": "Công nghệ thông tin",
+  "field_en": "Information technology",
+  "title_vi": "Giáo trình Kho dữ liệu và kỹ thuật khai phá",
+  "year": 2018,
+  "pdf_file": "Công nghệ thông tin/Giáo trình Kho dữ liệu và kỹ thuật khai phá - 2018.pdf",
+  "pdf_pages": 196,
+  "n_chunks": 132
+ },
+ {
+  "book_id": "CNTT-DH",
+  "field_vi": "Công nghệ thông tin",
+  "field_en": "Information technology",
+  "title_vi": "Giáo trình Kỹ thuật đồ họa",
+  "year": 2018,
+  "pdf_file": "Công nghệ thông tin/Giáo trình Kỹ thuật đồ họa - 2018.pdf",
+  "pdf_pages": 222,
+  "n_chunks": 189
+ },
+ {
+  "book_id": "DT-NHUNG",
+  "field_vi": "Điện tử",
+  "field_en": "Electronics",
+  "title_vi": "Bài giảng Hệ thống nhúng",
+  "year": 2019,
+  "pdf_file": "Điện tử/Bài giảng Hệ thống nhúng - 2019.pdf",
+  "pdf_pages": 276,
+  "n_chunks": 208
+ },
+ {
+  "book_id": "DT-VXL",
+  "field_vi": "Điện tử",
+  "field_en": "Electronics",
+  "title_vi": "Kỹ thuật Vi xử lý",
+  "year": 2014,
+  "pdf_file": "Điện tử/Kỹ thuật Vi xử lý - 2014.pdf",
+  "pdf_pages": 114,
+  "n_chunks": 101
+ },
+ {
+  "book_id": "DT-VLSI",
+  "field_vi": "Điện tử",
+  "field_en": "Electronics",
+  "title_vi": "Thiết kế hệ thống VLSI",
+  "year": 2014,
+  "pdf_file": "Điện tử/Thiết kế hệ thống VLSI - 2014.pdf",
+  "pdf_pages": 170,
+  "n_chunks": 129
+ },
+ {
+  "book_id": "MKT-PT",
+  "field_vi": "Marketing",
+  "field_en": "Marketing",
+  "title_vi": "Bài giảng Phân tích Marketing",
+  "year": 2019,
+  "pdf_file": "Marketing/Bài giảng Phân tích Marketing - 2019.pdf",
+  "pdf_pages": 82,
+  "n_chunks": 65
+ },
+ {
+  "book_id": "MKT-CRM",
+  "field_vi": "Marketing",
+  "field_en": "Marketing",
+  "title_vi": "Bài giảng Quản trị quan hệ khách hàng",
+  "year": 2019,
+  "pdf_file": "Marketing/Bài giảng Quản trị quan hệ khách hàng - 2019.pdf",
+  "pdf_pages": 116,
+  "n_chunks": 99
+ },
+ {
+  "book_id": "MKT-QTBH",
+  "field_vi": "Marketing",
+  "field_en": "Marketing",
+  "title_vi": "Quản trị bán hàng",
+  "year": 2020,
+  "pdf_file": "Marketing/Quản trị bán hàng - 2020.pdf",
+  "pdf_pages": 157,
+  "n_chunks": 126
+ }
+]
