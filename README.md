@@ -7,7 +7,7 @@ Vietnamese small language models (SLMs), as reported in:
 > and a Controlled Evaluation", submitted to the *Journal of Science and Technology on Information and Communications* (JSTIC).
 
 - Benchmark, annotations and all system outputs: https://huggingface.co/datasets/cuongphamduc/PTIT-CourseQA
-- Archived release (data + this code): https://doi.org/10.5281/zenodo.23086350
+- Archived release (data + this code): https://doi.org/10.5281/zenodo.23086349
 
 ## Systems
 

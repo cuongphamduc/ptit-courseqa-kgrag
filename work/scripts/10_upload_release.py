@@ -11,6 +11,7 @@ Order:
   hf             create <HF_OWNER>/PTIT-CourseQA (dataset) and upload the folder
   github         create <GH_OWNER>/ptit-courseqa-kgrag, commit and push the code
   zenodo         upload the two zip files and the metadata to the draft (NOT published)
+  newversion     (later releases) open a new version of the published Zenodo record, drop the inherited files
   publish        publish the Zenodo draft (irreversible: the DOI becomes permanent) — only after the author confirms
 usage: 10_upload_release.py reserve build hf github zenodo     and later:  10_upload_release.py publish
 """
@@ -27,6 +28,7 @@ STATE = os.path.join(REL, "zenodo_state.json")
 ZEN = "https://sandbox.zenodo.org/api" if os.environ.get("ZENODO_SANDBOX") == "1" else "https://zenodo.org/api"
 HF_REPO = "PTIT-CourseQA"
 GH_REPO = "ptit-courseqa-kgrag"
+VERSION = "1.0.1"
 
 
 def env(k):
@@ -60,8 +62,23 @@ def reserve():
     print("reserved DOI", st["doi"], st["html"])
 
 
+def newversion():
+    """new Zenodo version of the published record: draft with the inherited files removed (zenodo uploads new ones)"""
+    st = state()
+    d = zen("POST", f"/deposit/depositions/{st['id']}/actions/newversion")
+    dr = zen("GET", d["links"]["latest_draft"])
+    for f in dr.get("files", []):
+        zen("DELETE", f"/deposit/depositions/{dr['id']}/files/{f['id']}")
+    doi = (dr["metadata"].get("prereserve_doi") or {}).get("doi")
+    st = {"id": dr["id"], "doi": doi, "bucket": dr["links"]["bucket"], "html": dr["links"]["html"], "api": ZEN,
+          "conceptdoi": dr.get("conceptdoi") or st.get("conceptdoi"), "previous": st}
+    json.dump(st, open(STATE, "w"), indent=1)
+    print("new version draft", st["id"], "reserved DOI", doi, st["html"])
+
+
 def build():
-    e = dict(os.environ, HF_OWNER=env("HF_OWNER"), GH_OWNER=env("GH_OWNER"), ZENODO_DOI=state()["doi"])
+    st = state()  # cite the concept DOI (all versions) once it exists
+    e = dict(os.environ, HF_OWNER=env("HF_OWNER"), GH_OWNER=env("GH_OWNER"), ZENODO_DOI=st.get("conceptdoi") or st["doi"])
     subprocess.run([sys.executable, os.path.join(ROOT, "work", "scripts", "09_build_release.py")], env=e, check=True)
     for p in ("huggingface", "github", "zenodo"):
         out = subprocess.run(["grep", "-rlE", "\\{\\{(HF_OWNER|GH_OWNER|ZENODO_DOI)\\}\\}", os.path.join(REL, p)], capture_output=True, text=True).stdout
@@ -76,7 +93,7 @@ def hf():
     rid = f"{env('HF_OWNER')}/{HF_REPO}"
     api.create_repo(rid, repo_type="dataset", exist_ok=True, private=False)
     api.upload_folder(repo_id=rid, repo_type="dataset", folder_path=os.path.join(REL, "huggingface", HF_REPO),
-                      commit_message="PTIT-CourseQA v1.0.0")
+                      commit_message=f"PTIT-CourseQA v{VERSION}")
     print("uploaded https://huggingface.co/datasets/" + rid)
 
 
@@ -97,7 +114,7 @@ def github():
     git("add", "-A")
     if subprocess.run(["git", "-C", d, "diff", "--cached", "--quiet"]).returncode:
         git("-c", "user.name=Pham Duc Cuong", "-c", "user.email=cuongpd@ptit.edu.vn", "commit", "-m",
-            "PTIT-CourseQA v1.0.0: benchmark code and KG-RAG evaluation pipeline\n\n"
+            f"PTIT-CourseQA v{VERSION}\n\n"
             "Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>")
     import base64
     auth = base64.b64encode(f"x-access-token:{tok}".encode()).decode()
@@ -116,6 +133,7 @@ def zenodo():
             print("uploaded", f)
     meta = json.load(open(os.path.join(z, "zenodo_metadata.json")))
     meta["metadata"]["prereserve_doi"] = {"doi": st["doi"], "recid": st["id"]}
+    meta["metadata"]["publication_date"] = __import__("datetime").date.today().isoformat()
     zen("PUT", f"/deposit/depositions/{st['id']}", json=meta)
     print("draft ready (not published):", st["html"])
 
@@ -127,6 +145,6 @@ def publish():
 
 
 if __name__ == "__main__":
-    steps = {"reserve": reserve, "build": build, "hf": hf, "github": github, "zenodo": zenodo, "publish": publish}
+    steps = {"reserve": reserve, "newversion": newversion, "build": build, "hf": hf, "github": github, "zenodo": zenodo, "publish": publish}
     for a in sys.argv[1:] or sys.exit(__doc__):
         steps[a]()

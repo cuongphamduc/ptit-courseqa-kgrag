@@ -26,7 +26,7 @@ RES = os.path.join(ROOT, "results")
 REL = os.path.join(W, "release")
 TPL = os.path.join(W, "release_templates")
 CORE = os.path.join(REL, "core")
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 GROUP_EN = {"An toàn thông tin": "Information security", "Công nghệ thông tin": "Information technology",
             "Điện tử": "Electronics", "Marketing": "Marketing"}

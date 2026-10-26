@@ -1,10 +1,10 @@
 cff-version: 1.2.0
 message: "If you use this code or the PTIT-CourseQA benchmark, please cite it as below."
 title: "PTIT-CourseQA and structure-framed KG-RAG for Vietnamese small language models"
-version: 1.0.0
+version: 1.0.1
 license: CC-BY-4.0
 repository-code: "https://github.com/cuongphamduc/ptit-courseqa-kgrag"
-doi: "10.5281/zenodo.23086350"
+doi: "10.5281/zenodo.23086349"
 authors:
   - family-names: Pham
     given-names: Duc Cuong
